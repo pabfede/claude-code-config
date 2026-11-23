@@ -1,0 +1,82 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc --noEmit*)",
+      "Bash(npx expo-doctor*)",
+      "Bash(npx supabase projects list*)",
+      "Bash(npx eas-cli build:view*)",
+      "mcp__claude-in-chrome__find",
+      "mcp__claude-in-chrome__tabs_context_mcp"
+    ]
+  },
+  "model": "haiku",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.pixel-agents/hooks/claude-hook.js\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.pixel-agents/hooks/claude-hook.js\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "expo@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "firecrawl@claude-plugins-official": true,
+    "skillspector@skillspector": true,
+    "ponytail@ponytail": true,
+    "task-observer@one-skill-to-rule-them-all": true,
+    "lemo-opuscar@lemolab": true,
+    "superpowers@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "skillspector": {
+      "source": {
+        "source": "github",
+        "repo": "TronJuan/skillspector-claude-skill"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "one-skill-to-rule-them-all": {
+      "source": {
+        "source": "github",
+        "repo": "rebelytics/one-skill-to-rule-them-all"
+      }
+    },
+    "lemolab": {
+      "source": {
+        "source": "github",
+        "repo": "lemomo-ai/lemo-opuscar"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "autoUpdatesChannel": "latest",
+  "theme": "dark"
+}
